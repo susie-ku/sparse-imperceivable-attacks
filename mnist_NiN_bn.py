@@ -71,9 +71,9 @@ def inference(x, phase=False, keep_prob=1.0):
     
 class NiN_Model():
   def __init__(self):
-    self.x_input = tf.placeholder(tf.float32, shape=[None, 28, 28, 1])
-    self.y_input = tf.placeholder(tf.int64, shape=None)
-    self.bs = tf.placeholder(tf.int32, shape=None)
+    self.x_input = tf.compat.v1.placeholder(tf.float32, shape=[None, 28, 28, 1])
+    self.y_input = tf.compat.v1.placeholder(tf.int64, shape=None)
+    self.bs = tf.compat.v1.placeholder(tf.int32, shape=None)
       
     self.y = inference(self.x_input, phase=False, keep_prob=1.0)
     self.predictions = tf.argmax(self.y, 1)
