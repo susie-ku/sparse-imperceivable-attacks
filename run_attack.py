@@ -35,7 +35,7 @@ if __name__ == '__main__':
   
   hps = parser.parse_args()
   
-  sess = tf.InteractiveSession()
+  sess=tf.compat.v1.InteractiveSession()
   model = load_model(hps.dataset)
   
   x_test, y_test = load_data(hps.dataset, hps.n_examples, hps.data_dir)
