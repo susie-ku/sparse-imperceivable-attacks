@@ -4,9 +4,9 @@ import scipy.io
 import numpy as np
 
 def conv(x, phase, shape):
-    he_initializer = tf.compat.v1.contrib.keras.initializers.he_normal()
-    W = tf.get_variable('weights', shape=shape, initializer=he_initializer)
-    b = tf.get_variable('bias', shape=[shape[3]], initializer=tf.zeros_initializer)
+    he_initializer = tf.keras.initializers.he_normal()
+    W = tf.compat.v1.get_variable('weights', shape=shape, initializer=he_initializer, use_resource=False)
+    b = tf.compat.v1.get_variable('bias', shape=[shape[3]], initializer=tf.compat.v1.zeros_initializer, use_resource=False)
     x = tf.nn.conv2d(x, W, strides=[1,1,1,1], padding='SAME')
     x = tf.nn.bias_add(x,b)
     # return tf.contrib.layers.batch_norm(x,is_training=phase)    
