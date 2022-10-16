@@ -10,14 +10,14 @@ def load_model(dataset):
     import mnist_NiN_bn
     model = mnist_NiN_bn.NiN_Model()
     saver = tf.compat.v1.train.Saver()
-    checkpoint = tf.train.latest_checkpoint('/home/repository_mnist_relu/Tensorflow_version/nin_model/')
+    checkpoint = tf.train.latest_checkpoint('/content/sparse-imperceivable-attacks/models/mnist_NiN/')
     saver.restore(sess, checkpoint)
     
   elif dataset == 'cifar10':
     import cifar10_NiN_bn
     model = cifar10_NiN_bn.NiN_Model()
     saver = tf.train.Saver()
-    checkpoint = tf.train.latest_checkpoint('/home/cifar-10-cnn/Tensorflow_version/nin_model/')
+    checkpoint = tf.train.latest_checkpoint('/content/sparse-imperceivable-attacks/models/cifar10_NiN')
     saver.restore(sess, checkpoint)
     
   else:
