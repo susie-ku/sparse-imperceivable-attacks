@@ -9,7 +9,7 @@ def load_model(dataset):
   if dataset == 'mnist':
     import mnist_NiN_bn
     model = mnist_NiN_bn.NiN_Model()
-    saver = tf.train.Saver()
+    saver = tf.compat.v1.train.Saver()
     checkpoint = tf.train.latest_checkpoint('/home/repository_mnist_relu/Tensorflow_version/nin_model/')
     saver.restore(sess, checkpoint)
     
